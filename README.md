@@ -1,6 +1,6 @@
 # mdr-importer
 
-`python -m mdr [-h] [--force] [--drop] [-files [foo]] [-ctx [foo]] [-xs [foo]]`
+```$ python -m mdr [-h] [--force] [--drop] [-files [foo]] [-ctx [foo]] [-xs [foo]]```
 
 - `-h, --help`      show this help message and exit
 - `--force`         Force reload. Drop current contex, conceptual domains and data elements. Import provided context and extraction specification.
