@@ -1,0 +1,115 @@
+Context Name 		= WEBRADR
+Context Definition	= The context which holds all resources of WEB-RADR.
+
+0001	CodedValue	The coded value class that holds coded values along with their code systems.	codeSystem	characterstring	characterstring	.	.	.	.
+0002	CodedValue	.	code	characterstring	characterstring	.	.	.	.
+0003	MedDRACode	The class for MedDRACode. Inherits from CodedValue.	cv	CodedValue	CodedValue	.	.	.	.
+0004	MedDRACode	.	oid	characterstring	characterstring	.	.	.	.
+0005	VitalSign	The vital sign class that holds measurements of the body's most basic functions.	date	characterstring	characterstring	.	.	.	.
+0006	VitalSign	.	value	real	real	.	.	.	.
+0007	Reporter	The reporter class that is used to identify the primary source of the report.	title	characterstring	characterstring	.	.	.	The reporter’s title should be used.
+0008	Reporter	.	givenName	characterstring	characterstring	.	.	.	The reporter's given name should be used.
+0009	Reporter	.	familyName	characterstring	characterstring	.	.	.	The reporter's family name should be used.
+0010	Reporter	.	organization	characterstring	characterstring	.	.	.	The reporter's contact information should be used.
+0011	Reporter	.	street	characterstring	characterstring	.	.	.	The reporter's contact information should be used.
+0012	Reporter	.	city	characterstring	characterstring	.	.	.	The reporter's contact information should be used.
+0013	Reporter	.	state	characterstring	characterstring	.	.	.	The reporter's contact information should be used.
+0014	Reporter	.	postcode	characterstring	characterstring	.	.	.	The reporter's contact information should be used.
+0015	Reporter	.	country	characterstring	ISO3166-A2	YES	1.0.3166.1.2	ISO3166 	Use the two letter ISO3166-1 Alpha-2 code to represent the names of the country.
+0016	Reporter	.	qualification	integer	QUALIFICATION	YES	2.16.840.1.113883.3.989.2.1.3	1=Physician|2=Pharmacist|3=Other Health Professional|4=Lawyer|5=Consumer or other non health professional 	The reporter qualification does not preclude the reportability of the case reportability depends on local regulations.
+0017	Episode	The episode class that holds the information about past illnesses surgeries allergies or other adverse reactions.	MedDRAVersion	characterstring	characterstring	.	.	.	The reporter qualification does not preclude the reportability of the case reportability depends on local regulations.
+0018	Episode	.	name	MedDRACode	MedDRACode	.	.	.	.
+0019	Episode	.	startDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0020	Episode	.	startDate	characterstring	characterstring	.	.	.	.
+0021	Episode	.	continuing	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0022	Episode	.	endDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0023	Episode	.	endDate	characterstring	characterstring	.	.	.	.
+0024	Episode	.	comments	characterstring	characterstring	.	.	.	.
+0025	DrugTherapy	The drug therapy class that holds past medication administration information with their reactions and indications.	name	characterstring	characterstring	.	.	.	.
+0026	DrugTherapy	.	startDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0027	DrugTherapy	.	startDate	characterstring	characterstring	.	.	.	.
+0028	DrugTherapy	.	endDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0029	DrugTherapy	.	endDate	characterstring	characterstring	.	.	.	.
+0030	DrugTherapy	.	indicationMedDRAVersion	characterstring	characterstring	.	.	.	.
+0031	DrugTherapy	.	indication	MedDRACode	MedDRACode	.	.	.	.
+0032	DrugTherapy	.	reactionMedDRAVersion	characterstring	characterstring	.	.	.	.
+0033	DrugTherapy	.	reaction	MedDRACode	MedDRACode	.	.	.	.
+0034	Reaction	The reaction class that is used for reactions or events reported by primary source. In other words the side effect of suspected drug.	reaction	characterstring	characterstring	.	.	.	Reaction/event as reported by primary source
+0035	Reaction	.	termHighlighted	integer	SERIOUSNESS	YES	CL.WR0004.SERIOUSNESS	1=Yes. Highlighted by the reporter. NOT serious.|2=No. Not highlighted by the reporter. NOT serious.|3=Yes. Highlighted by the reporter. SERIOUS.|4=No. Not highlighted by the reporter. SERIOUS.	.
+0036	Reaction	.	startDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0037	Reaction	.	startDate	characterstring	characterstring	.	.	.	.
+0038	Reaction	.	endDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0039	Reaction	.	endDate	characterstring	characterstring	.	.	.	.
+0040	Reaction	.	duration	integer	integer	.	.	.	.
+0041	Reaction	.	durationUnit	integer	DURATIONUNIT	YES	2.16.840.1.113883.3.989.2.1.6	801=Year|802=Month|803=Week|804=Day|805=Hour|806=Minute|807=Second	.
+0042	Reaction	.	outcome	integer	OUTCOME	YES	CL.WR0006.OUTCOME	1=recovered/resolved|2=recovering/resolving|3=not recovered/not resolved|4=recovered/resolved with sequelae|5=fatal|6=unknown 	.
+0043	Test	The test class that holds laboratory data. That is result date of test normal range etc.	dateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0044	Test	.	date	characterstring	characterstring	.	.	.	.
+0045	Test	.	name	characterstring	characterstring	.	.	.	.
+0046	Test	.	result	characterstring	characterstring	.	.	.	.
+0047	Test	.	unit	characterstring	characterstring	.	.	.	.
+0048	Test	.	normalLowRange	characterstring	characterstring	.	.	.	.
+0049	Test	.	normalHighRange	characterstring	characterstring	.	.	.	.
+0050	Test	.	moreInformation	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0051	Drug	The drug class that is used to identify a single suspected medicine. It holds dosage information as well as indication and duration of administration.	charactarization	integer	CHARACTERIZATION	YES	CL.WR0007.CHARACTERIZATION	1=Suspect|2=Concomitant|3=Interacting 	Causing the reaction?
+0052	Drug	.	name	characterstring	characterstring	.	.	.	.
+0053	Drug	.	substance	characterstring	characterstring	.	.	.	.
+0054	Drug	.	batchNumber	characterstring	characterstring	.	.	.	.
+0055	Drug	.	dose	integer	integer	.	.	.	.
+0056	Drug	.	doseUnit	integer	DOSEUNIT	YES	2.16.840.1.113883.3.989.2.1.1	001=kg kilogram(s)|002=G gram(s)|003=Mg milligram(s)|004=μg microgram(s)|005=ng nanogram(s)|006=pg picogram(s)|007=mg/kg milligram(s)/kilogram|008=μg/kg microgram(s)/kilogram|009=mg/m 2 milligram(s)/sq. meter|010=μg/ m 2 microgram(s)/ sq. Meter|011=l litre(s)|012=ml millilitre(s)|013=μl microlitre(s)|014=Bq becquerel(s)|015=GBq gigabecquerel(s)|016=MBq megabecquerel(s)|017=Kbq kilobecquerel(s)|018=Ci curie(s)|019=MCi millicurie(s)|020=μCi microcurie(s)|021=NCi nanocurie(s)|022=Mol mole(s)|023=Mmol millimole(s)|024=μmol micromole(s)|025=Iu international unit(s)|026=Kiu iu(1000s)|027=Miu iu(1000000s)|028=iu/kg iu/kilogram|029=Meq milliequivalent(s)|030=% percent|031=Gtt drop(s)|032=DF dosage form	.
+0057	Drug	.	separateDose	integer	integer	.	.	.	.
+0058	Drug	.	doseInterval	integer	integer	.	.	.	.
+0059	Drug	.	doseIntervalUnit	integer	DURATIONUNIT	YES	2.16.840.1.113883.3.989.2.1.6	801=Year|802=Month|803=Week|804=Day|805=Hour|806=Minute|807=Second	.
+0060	Drug	.	cumulativeDose	integer	integer	.	.	.	.
+0061	Drug	.	cumlativeDoseUnit	integer	DOSEUNIT	YES	2.16.840.1.113883.3.989.2.1.1	001=kg kilogram(s)|002=G gram(s)|003=Mg milligram(s)|004=μg microgram(s)|005=ng nanogram(s)|006=pg picogram(s)|007=mg/kg milligram(s)/kilogram|008=μg/kg microgram(s)/kilogram|009=mg/m 2 milligram(s)/sq. meter|010=μg/ m 2 microgram(s)/ sq. Meter|011=l litre(s)|012=ml millilitre(s)|013=μl microlitre(s)|014=Bq becquerel(s)|015=GBq gigabecquerel(s)|016=MBq megabecquerel(s)|017=Kbq kilobecquerel(s)|018=Ci curie(s)|019=MCi millicurie(s)|020=μCi microcurie(s)|021=NCi nanocurie(s)|022=Mol mole(s)|023=Mmol millimole(s)|024=μmol micromole(s)|025=Iu international unit(s)|026=Kiu iu(1000s)|027=Miu iu(1000000s)|028=iu/kg iu/kilogram|029=Meq milliequivalent(s)|030=% percent|031=Gtt drop(s)|032=DF dosage form	.
+0062	Drug	.	doseText	characterstring	characterstring	.	.	.	.
+0063	Drug	.	route	integer	ADMINISTRATIONROUTE	YES	2.16.840.1.113883.3.989.2.1.2	001=Auricular (otic)|002=Buccal|003=Cutaneous|004=Dental|005=Endocervical|006=Endosinusial|007=Endotracheal|008=Epidural|009=Extra-amniotic|010=Hemodialysis|011=Intra corpus cavernosum|012=Intra-amniotic|013=Intra-arterial|014=Intra-articular|015=Intra-uterine|016=Intracardiac|017=Intracavernous|018=Intracerebral|019=Intracervical|020=Intracisternal|021=Intracorneal|022=Intracoronary|023=Intradermal|024=Intradiscal (intraspinal)|025=Intrahepatic|026=Intralesional|027=Intralymphatic|028=Intramedullar (bone marrow)|029=Intrameningeal|030=Intramuscular|031=Intraocular|032=Intrapericardial|033=Intraperitoneal|034=Intrapleural|035=Intrasynovial|036=Intratumor|037=Intrathecal|038=Intrathoracic|039=Intratracheal|040=Intravenous bolus|041=Intravenous drip|042=Intravenous (not otherwise specified)|043=Intravesical|044=Iontophoresis|045=Nasal|046=Occlusive dressing technique|047=Ophthalmic|048=Oral|049=Oropharingeal|050=Other|051=Parenteral|052=Periarticular|053=Perineural|054=Rectal|055=Respiratory (inhalation)|056=Retrobulbar|057=Sunconjunctival|058=Subcutaneous|059=Subdermal|060=Sublingual|061=Topical|062=Transdermal|063=Transmammary|064=Transplacental|065=Unknown|066=Urethral|067=Vaginal	.
+0064	Drug	.	indicationMedDRAVersion	characterstring	characterstring	.	.	.	.
+0065	Drug	.	indication	MedDRACode	MedDRACode	.	.	.	.
+0066	Drug	.	startDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0067	Drug	.	startDate	characterstring	characterstring	.	.	.	.
+0068	Drug	.	endDateFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0069	Drug	.	endDate	characterstring	characterstring	.	.	.	.
+0070	Drug	.	duration	integer	integer	.	.	.	.
+0071	Drug	.	durationUnit	integer	DURATIONUNIT	YES	2.16.840.1.113883.3.989.2.1.6	801=Year|802=Month|803=Week|804=Day|805=Hour|806=Minute|807=Second	.
+0072	Drug	.	actions	integer	ACTION	YES	CL.WR0010.ACTION	1=Drug withdrawn|2=Dose reduced|3=Dose increased|4=Dose not changed|5=Unknown|6=Not applicable	.
+0073	Drug	.	recur	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0074	Drug	.	additionalInformation	characterstring	characterstring	.	.	.	.
+0075	Patient	The patient class that holds any information related to patient such as past drug therapy medical history tests reactions active drugs etc.	id	characterstring	characterstring	.	.	.	Age at time of onset of reaction/event
+0076	Patient	.	gpMedicalRecordNumber	characterstring	characterstring	.	.	.	.
+0077	Patient	.	specialistRecordNumber	characterstring	characterstring	.	.	.	.
+0078	Patient	.	hospitalRecordNumber	characterstring	characterstring	.	.	.	.
+0079	Patient	.	investigationNumber	characterstring	characterstring	.	.	.	.
+0080	Patient	.	dateOfBirthFormat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0081	Patient	.	dateOfBirth	characterstring	characterstring	.	.	.	.
+0082	Patient	.	age	integer	integer	.	.	.	Age at time of onset of reaction/event
+0083	Patient	.	ageUnit	integer	DURATIONUNIT	YES	2.16.840.1.113883.3.989.2.1.6	801=Year|802=Month|803=Week|804=Day|805=Hour|806=Minute|807=Second	.
+0084	Patient	.	weight	VitalSign	VitalSign	.	.	.	Weight at time of onset of reaction/event
+0085	Patient	.	height	VitalSign	VitalSign	.	.	.	Height at time of onset of reaction/event
+0086	Patient	.	gender	integer	GENDER	YES	2.16.840.1.113883.3.989.2.1.5	1=Male|2=Female 	.
+0087	Patient	.	medicalHistoryText	characterstring	characterstring	.	.	.	If structured information is not available in the sender’s database this item should be used.
+0088	Patient	.	medicalHistoryEpisode	Episode	Episode	.	.	.	.
+0089	Patient	.	pastDrugTherapy	DrugTherapy	DrugTherapy	.	.	.	.
+0090	Patient	.	reactions	Reaction	Reaction	.	.	.	.
+0091	Patient	.	tests	Test	Test	.	.	.	.
+0092	Patient	.	drugs	Drug	Drug	.	.	.	.
+0093	Patient	.	reporterComments	characterstring	characterstring	.	.	.	.
+0094	Receiver	The receiver class that holds any information related to the organisation that receives individual case safety report. 	receivertype 	integer	SRTYPE	YES	2.16.840.1.113883.3.989.2.1.4	1=Pharmaceutical Company|2=Regulatory Authority|3=Health professional|4=Regional Pharmacovigilance Center|5=WHO Collaborating Center for International Drug Monitoring|6=Other	.
+0095	Sender	The sender class that holds any information related to the organisation that submits individual case safety report. 	sendertype 	integer	SRTYPE	YES	2.16.840.1.113883.3.989.2.1.4	1=Pharmaceutical Company|2=Regulatory Authority|3=Health professional|4=Regional Pharmacovigilance Center|5=WHO Collaborating Center for International Drug Monitoring|6=Other	.
+0096	Sender	.	senderorganization 	characterstring	characterstring	.	.	.	.
+0097	SafetyReport	The safety report class that holds basic information about a single report along with primary source (reporters) and patient.	country	characterstring	ISO3166-A2	YES	1.0.3166.1.2	ISO3166 	Identification of the country of the primary source
+0098	SafetyReport	.	serious	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0099	SafetyReport	.	death	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0100	SafetyReport	.	lifeThreatening	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0101	SafetyReport	.	hospitalization	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0102	SafetyReport	.	disabling	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0103	SafetyReport	.	congenitalAnomali	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0104	SafetyReport	.	other	integer	KNOWN	YES	2.16.840.1.113883.3.989.2.1.8	1=Yes|2=No|3=Unknown 	.
+0105	SafetyReport	.	receiptdateformat	integer	DATEFORMAT	YES	2.16.840.1.113883.3.989.2.1.7	102=CCYYMMDD|203=CCYYMMDDHHMM|602=CCYY|610=CCYYMM	.
+0106	SafetyReport	.	receiptdate	characterstring	characterstring	.	.	.	.
+0107	SafetyReport	.	primarySource	Reporter	Reporter	.	.	.	.
+0108	SafetyReport	.	sender	Sender	Sender	.	.	.	.
+0109	SafetyReport	.	receiver	Receiver	Receiver	.	.	.	.
+0110	SafetyReport	.	patient	Patient	Patient	.	.	.	.
+0111	ICHICSR	The root class that holds multiple individual case safety reports.	reports	SafetyReport	SafetyReport	.	.	.	.
+0112	ICHICSR	.	lang	characterstring	characterstring	.	.	.	.
